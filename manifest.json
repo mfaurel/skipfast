@@ -1,0 +1,23 @@
+{
+  "name": "Skipfast",
+  "description": "Automatically skip Netflix, Prime Video and Disney plus intros, recaps, and next episode prompts.",
+  "author": "Michaël Faurel",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*/*"
+      ],
+      "js": ["src/content_script.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "permissions": ["storage", "activeTab"],
+  "action": {
+    "default_popup": "src/popup.html"
+  }
+}
