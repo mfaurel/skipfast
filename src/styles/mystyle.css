@@ -1,6 +1,6 @@
 body {
-  background-color: #0c2233;
-  width: 400px;
+  background-color: #85b1d3;
+  width: 300px;
 }
 
 .title {
@@ -8,12 +8,12 @@ body {
 }
 
 .color-primary {
-  color: #0a91ab;
+  color: #3a4446;
 }
 
 .custom-link,
 .color-secondary {
-  color: #ffc045;
+  color: #2b1d02;
 }
 
 .info-text-list {
