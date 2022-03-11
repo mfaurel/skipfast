@@ -1,0 +1,22 @@
+{
+  "name": "skip-fast",
+  "version": "1.0.0",
+  "description": "Auto Skip Intro, Recaps for Prime and Netflix",
+  "source": "src/content_script.js",
+  "main": "dist/bundle_new.js",
+  "scripts": {
+    "build": "rm -rf dist && microbundle -f modern --sourcemap false && npm run post",
+    "build:dev": "rm -rf dist && microbundle -f modern && npm run post:dev",
+    "dev": "microbundle watch",
+    "post": "mv dist/bundle_new.modern.js dist/bundle_new.js",
+    "post:dev": "mv dist/bundle_new.modern.js dist/bundle_new.js & mv dist/bundle_new.modern.js.map dist/bundle_new.js.map",
+    "copy": "cp -R manifest.json ../final_build/ && cp -R dist ../final_build/ && cp -R src/assets ../final_build/src/ && cp -R src/popup.html ../final_build/src/ && cp -R src/styles ../final_build/src/ && cp -R src/background.js ../final_build/src/ && cd .. && zip -r final_build_$npm_package_version.zip final_build",
+    "publish": "rm -rf ../final_build && mkdir ../final_build/ && mkdir ../final_build/src/ && npm run copy",
+    "final": "npm run build && npm run publish"
+  },
+  "author": "Michaël Faurel",
+  "license": "MIT",
+  "devDependencies": {
+    "microbundle": "0.14.2"
+  }
+}
