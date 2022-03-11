@@ -18,9 +18,3 @@ I'll be delighted to receive a PR.
 ```
 npm run build:dev
 ```
-
-or
-
-```
-yarn run build:dev
-```

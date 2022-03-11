@@ -127,3 +127,7 @@ async function skippy() {
 if (document.location.host.includes(".primevideo.")) {
   setInterval(() => skippy(), 500);
 }
+
+if (document.location.host.includes(".disneyplus.")) {
+  setInterval(() => skippy(), 500);
+}
