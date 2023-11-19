@@ -1,11 +1,14 @@
-Supprimer ce fichier
-
 Mettre à jour le style de la popup
 Permettre de choisir dans la popup le site que l'on souhaite
 
-Avoir une liste de séries pour tester chacun des cas de skip
- 
 
+Liste de séries pour tester chacun des cas de skip
+ 
+Test de Netflix :
+Hunter X Hunter 117 récap intro : https://www.netflix.com/watch/80150556?trackId=254794450
+
+Test de AppleTV :
+Episode 8 The Morning Show : https://tv.apple.com/fr/episode/la-solitude-du-pouvoir/umc.cmc.231w1pa6pm3ocsma0mw7zueaj
 
 /*
     var ready = true;
