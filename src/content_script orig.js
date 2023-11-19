@@ -24,21 +24,23 @@ const BUTTONS_DATA_TESTID = [DISNEY_NEXT_EPISODE_TEST_ID];
 const BUTTONS_CLASSLIST = [APPLETV_INTRO_CLASSLIST, DISNEY_INTRO_CLASS, PRIME_RECAP, PRIME_RECAP_2, PRIME_RECAP_3, PRIME_ADS, PRIME_ADS_2, PRIME_ADS_3, PRIME_CREDITS, PRIME_NEXT];
 
 async function skipper() {
-  let netflixSkipIntro, netflixSkipRecap, netflixSkipNext, skipAds, skipRecap, skipNext, skipIntro;
+  let skipIntro, skipRecap, skipNext, skipAds;
   let button_data_uia, button_data_testid, button_classlist;
   
   try {
-    let result = await chrome.storage.local.get(["netflixSkipIntro", "netflixSkipRecap", "netflixSkipNext"]);
-      netflixSkipIntro = result.netflixSkipIntro;
-      netflixSkipRecap = result.netflixSkipRecap;
-      netflixSkipNext = result.netflixSkipNext;
+    let result = await chrome.storage.local.get(["skipIntro", "skipRecap", "skipNext", "skipAds"]);
+      skipIntro = result.skipIntro;
+      skipRecap = result.skipRecap;
+      skipNext = result.skipNext;
+      skipAds = result.skipAds;
+      // TODO : add more
 
     const mapper = {
           // Netflix
-          [NETFLIX_SKIP_INTRO_DATA_UIA]: netflixSkipIntro,
-          [NETFLIX_RECAP_DATA_UIA]: netflixSkipRecap,
-          [NETFLIX_NEXT_DATA_UIA]: netflixSkipNext,
-          [NETFLIX_NEXT_DRAIN_DATA_UIA]: netflixSkipNext/*,
+          [NETFLIX_SKIP_INTRO_DATA_UIA]: skipIntro,
+          [NETFLIX_RECAP_DATA_UIA]: skipRecap,
+          [NETFLIX_NEXT_DATA_UIA]: skipNext,
+          [NETFLIX_NEXT_DRAIN_DATA_UIA]: skipNext,
           // Prime Video
           [PRIME_RECAP]: skipRecap,
           [PRIME_RECAP_2]: skipRecap,
@@ -51,7 +53,7 @@ async function skipper() {
           [DISNEY_INTRO_CLASS]: skipIntro,
           [DISNEY_NEXT_EPISODE_TEST_ID]: skipNext,
           // AppleTV
-          [APPLETV_INTRO_CLASSLIST]: skipAds*/
+          [APPLETV_INTRO_CLASSLIST]: skipAds
     };
 
     BUTTONS_DATA_UIA.forEach((datauia) => {
@@ -85,5 +87,5 @@ async function skipper() {
 }
 
 if (document.location.host.includes(".netflix.") || document.location.host.includes(".primevideo.") || document.location.host.includes(".disneyplus.") || document.location.host.includes("tv.apple.")) {
-  setInterval(() => skipper(), 500);
+  setInterval(() => skipper(), 800);
 }

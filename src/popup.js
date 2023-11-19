@@ -42,7 +42,6 @@ function handleNetflixOptionsClick(e) {
     updateOption('netflixSkipNext', netflixSkipNext.checked);
   }
   
-  // TODO si netflix all unchecked > uncheck & hide
   if(!netflixSkipIntro.checked && !netflixSkipRecap.checked && !netflixSkipNext.checked){
     netflixCheckbox.checked = netflixSkipIntro.checked;
     updateOption('netflix', netflixSkipIntro.checked);
