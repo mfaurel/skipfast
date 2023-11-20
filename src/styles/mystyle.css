@@ -63,13 +63,3 @@ input[type="checkbox"] {
 label {
   color: #444;
 }
-
-/* Netflix Checkbox Styles */
-#netflix-options-list {
-  display: none;
-}
-
-/* Prime Video Checkbox Styles */
-#prime-options-list {
-  display: none;
-}

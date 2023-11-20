@@ -1,15 +1,15 @@
-// OK 19/11/2023
 const NETFLIX_SKIP_INTRO_DATA_UIA = "player-skip-intro"; 
 const NETFLIX_RECAP_DATA_UIA = "player-skip-recap";
 const NETFLIX_NEXT_DATA_UIA = "next-episode-seamless-button";
 const NETFLIX_NEXT_DRAIN_DATA_UIA = "next-episode-seamless-button-draining";
 
-// OK 19/11/2023
 const APPLETV_INTRO_CLASSLIST = "skip__button";
 
+// TODO
 const DISNEY_NEXT_EPISODE_TEST_ID = "up-next-play-button";
 const DISNEY_INTRO_CLASS = "skip__button";
 
+// TODO
 const PRIME_RECAP = "skipElement";
 const PRIME_RECAP_2 = "atvwebplayersdk-skipelement-button";
 const PRIME_RECAP_3 = "fqye4e3";
@@ -24,22 +24,23 @@ const BUTTONS_DATA_TESTID = [DISNEY_NEXT_EPISODE_TEST_ID];
 const BUTTONS_CLASSLIST = [APPLETV_INTRO_CLASSLIST, DISNEY_INTRO_CLASS, PRIME_RECAP, PRIME_RECAP_2, PRIME_RECAP_3, PRIME_ADS, PRIME_ADS_2, PRIME_ADS_3, PRIME_CREDITS, PRIME_NEXT];
 
 async function skipper() {
-  let netflixSkipIntro, netflixSkipRecap, netflixSkipNext, skipAds, skipRecap, skipNext, skipIntro;
+  let netflixSkipIntro, netflixSkipRecap, netflixSkipNext, appleSkipAds, skipAds, skipRecap, skipNext, skipIntro;
   let button_data_uia, button_data_testid, button_classlist;
   
   try {
-    let result = await chrome.storage.local.get(["netflixSkipIntro", "netflixSkipRecap", "netflixSkipNext"]);
+    let result = await chrome.storage.local.get(["netflixSkipIntro", "netflixSkipRecap", "netflixSkipNext", "appleSkipAds"]);
       netflixSkipIntro = result.netflixSkipIntro;
       netflixSkipRecap = result.netflixSkipRecap;
       netflixSkipNext = result.netflixSkipNext;
+      appleSkipAds = result.appleSkipAds;
 
     const mapper = {
           // Netflix
           [NETFLIX_SKIP_INTRO_DATA_UIA]: netflixSkipIntro,
           [NETFLIX_RECAP_DATA_UIA]: netflixSkipRecap,
           [NETFLIX_NEXT_DATA_UIA]: netflixSkipNext,
-          [NETFLIX_NEXT_DRAIN_DATA_UIA]: netflixSkipNext/*,
-          // Prime Video
+          [NETFLIX_NEXT_DRAIN_DATA_UIA]: netflixSkipNext,
+          /*// Prime Video TODO
           [PRIME_RECAP]: skipRecap,
           [PRIME_RECAP_2]: skipRecap,
           [PRIME_RECAP_3]: skipRecap,
@@ -47,11 +48,11 @@ async function skipper() {
           [PRIME_ADS_2]: skipAds,
           [PRIME_ADS_3]: skipAds,
           [PRIME_CREDITS]: skipNext,
-          // Disney +
+          // Disney+ TODO
           [DISNEY_INTRO_CLASS]: skipIntro,
-          [DISNEY_NEXT_EPISODE_TEST_ID]: skipNext,
+          [DISNEY_NEXT_EPISODE_TEST_ID]: skipNext,*/
           // AppleTV
-          [APPLETV_INTRO_CLASSLIST]: skipAds*/
+          [APPLETV_INTRO_CLASSLIST]: appleSkipAds
     };
 
     BUTTONS_DATA_UIA.forEach((datauia) => {
@@ -85,5 +86,5 @@ async function skipper() {
 }
 
 if (document.location.host.includes(".netflix.") || document.location.host.includes(".primevideo.") || document.location.host.includes(".disneyplus.") || document.location.host.includes("tv.apple.")) {
-  setInterval(() => skipper(), 500);
+  setInterval(() => skipper(), 800);
 }

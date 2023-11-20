@@ -4,5 +4,11 @@ chrome.runtime.onInstalled.addListener(() => {
   chrome.storage.local.set({ netflixSkipIntro: true });
   chrome.storage.local.set({ netflixSkipRecap: true });
   chrome.storage.local.set({ netflixSkipNext: true });
-  chrome.storage.local.set({ skipIntro: true, skipRecap: true, skipNext: true, skipAds: true });
+  // Add AppleTV on Install
+  chrome.storage.local.set({ apple: true});
+  chrome.storage.local.set({ appleSkipAds: true });
+  // Add Disney+ on Install
+  // TODO
+  // Add Prime Video on Install
+  // TODO
 });
