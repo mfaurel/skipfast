@@ -1,5 +1,4 @@
 TODO Bug ? Problème de recherche dans appleTV
-TODO Bug ? When skipAds not existing in new popupjs ? Quid des undefined quand !skipAds = undefined
 
 -*-**-*-*-*-*-*-*-*-*-*-*-
 
