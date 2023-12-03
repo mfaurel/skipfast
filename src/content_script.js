@@ -11,13 +11,10 @@ const DISNEY_NEXT_EPISODE_DATA_TESTID = "up-next-play-button";
 // TODO : 'Playing next episode' selector: 'button.sc-gipzik.play'
 // TODO : Skip recap ?
 
-// TODO
 const PRIME_SKIP_INTRO_CLASSLIST = "f1oordr3"; 
 const PRIME_SKIP_RECAP_CLASSLIST = "atvwebplayersdk-skipelement-button";
 const PRIME_SKIP_ADS_DIV_AS_A_BUTTON = "fu4rd6c";
-// ADS_2 = "afu4rd6c"; + ADS_3 = "f1cw2swo"; fu4rd6c f1cw2swo
 const PRIME_SKIP_NEXT_DIV_AS_A_BUTTON = "atvwebplayersdk-nextupcard-button"; 
-// atvwebplayersdk-nextupcard-button f1gt9x4j f1p8xxr6 f1137xqz fd8k8m6 then  f1kyngch f1c55z14 > Fail : fmy9x71 & fjyb7y2
 
 const BUTTONS_DATA_UIA = [NETFLIX_SKIP_INTRO_DATA_UIA, NETFLIX_RECAP_DATA_UIA, NETFLIX_NEXT_DATA_UIA, NETFLIX_NEXT_DRAIN_DATA_UIA];
 const BUTTONS_DATA_TESTID = [DISNEY_NEXT_EPISODE_DATA_TESTID];
