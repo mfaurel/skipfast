@@ -1,8 +1,8 @@
 {
-  "name": "Skipfast intro for Netflix, Prime Video and Disney plus",
+  "name": "Skipfast intro, recap, next and more",
   "description": "Automatically skip Netflix, Prime Video and Disney plus intros, recaps, and next episode prompts.",
   "author": "Michaël Faurel",
-  "version": "1.0",
+  "version": "2.0.0",
   "manifest_version": 3,
   "icons": { "128": "src/assets/icon128x128_2.png" },
   "background": {
