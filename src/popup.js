@@ -9,15 +9,27 @@ const appleCheckbox = document.getElementById("appleCheckbox");
 const appleOptionsList = document.getElementById('apple-options-list');
 const appleSkipAds = document.getElementById("apple-skip-ads");
 // Prime Video
-// TODO
+const primeCheckbox = document.getElementById("primeCheckbox");
+const primeOptionsList= document.getElementById("prime-options-list");
+const primeSkipIntro = document.getElementById('prime-skip-intro');
+const primeSkipRecap = document.getElementById("prime-skip-recap");
+const primeSkipNext = document.getElementById('prime-skip-next');
+const primeSkipAds = document.getElementById("prime-skip-ads");
 // Disney+
-// TODO
+const disneyCheckbox = document.getElementById("disneyCheckbox");
+const disneyOptionsList = document.getElementById('disney-options-list');
+const disneySkipIntro = document.getElementById('disney-skip-intro');
+const disneySkipNext = document.getElementById('disney-skip-next');
 
 chrome.storage.local.get(
-  ["netflix", "netflixSkipIntro", "netflixSkipRecap", "netflixSkipNext", "apple", "appleSkipAds"],
-  ({ netflix, netflixSkipIntro, netflixSkipRecap, netflixSkipNext, apple, appleSkipAds }) => {
+  ["netflix", "netflixSkipIntro", "netflixSkipRecap", "netflixSkipNext", "apple", "appleSkipAds", "prime", "primeSkipIntro", "primeSkipRecap", "primeSkipNext", 
+"primeSkipAds", "disney", "disneySkipIntro", "disneySkipNext"],
+  ({ netflix, netflixSkipIntro, netflixSkipRecap, netflixSkipNext, apple, appleSkipAds, prime, primeSkipIntro, primeSkipRecap, primeSkipNext, primeSkipAds,
+    disney, disneySkipIntro, disneySkipNext}) => {
     updateNetflixOptions(netflix, netflixSkipIntro, netflixSkipRecap, netflixSkipNext);
     updateAppleTVOptions(apple, appleSkipAds);
+    updatePrimeOptions(prime, primeSkipIntro, primeSkipRecap, primeSkipNext, primeSkipAds);
+    updateDisneyOptions(disney, disneySkipIntro, disneySkipNext);
   }
 );
 
@@ -28,9 +40,11 @@ document.addEventListener('click', function(e) {
   // AppleTV
   handleAppleCheckboxClick(e);
   // Prime Video 
-  // TODO
+  handlePrimeCheckboxClick(e);
+  handlePrimeOptionsClick(e);
   // Disney+
-  // TODO
+  handleDisneyCheckboxClick(e);
+  handleDisneyOptionsClick(e);
 });
 
 //
@@ -127,12 +141,102 @@ function toggleAppleCheckboxes() {
 //
 // PrimeVideo
 //
-// TODO
+function updatePrimeOptions(prime, skipIntro, skipRecap, skipNext, skipAds) {
+  if (prime || skipIntro || skipRecap || skipNext || skipAds) {
+    primeOptionsList.style.display = 'block';
+  } else {
+    primeOptionsList.style.display = 'none';
+  }
+  primeCheckbox.checked = prime;
+  primeSkipIntro.checked = skipIntro;
+  primeSkipRecap.checked = skipRecap;
+  primeSkipNext.checked = skipNext;
+  primeSkipAds.checked = skipAds;
+}
+
+function handlePrimeCheckboxClick(e) {
+  if (e.target === primeCheckbox) {
+    togglePrimeCheckboxes();
+  }
+}
+
+function handlePrimeOptionsClick(e) {
+  if (e.target === primeSkipIntro) {
+    updateOption('primeSkipIntro', primeSkipIntro.checked);
+  } else if (e.target === primeSkipRecap) {
+    updateOption('primeSkipRecap', primeSkipRecap.checked);
+  } else if (e.target === primeSkipNext) {
+    updateOption('primeSkipNext', primeSkipNext.checked);
+  }else if (e.target === primeSkipAds) {
+    updateOption('primeSkipAds', primeSkipAds.checked);
+  }
+  if(!primeSkipIntro.checked && !primeSkipRecap.checked && !primeSkipNext.checked && !primeSkipAds.checked){
+    primeCheckbox.checked = primeSkipIntro.checked;
+    updateOption('prime', primeSkipIntro.checked);
+    primeOptionsList.style.display = 'none';
+  }
+}
+
+function togglePrimeCheckboxes() {
+  const primeCheckboxes = document.querySelectorAll('[data-prime]');
+  primeCheckboxes.forEach(function(checkbox) {
+    checkbox.checked = primeCheckbox.checked;
+  });
+  if(primeCheckbox.checked == true ){
+    primeOptionsList.style.display = 'block';
+  }
+  updateOption('prime', primeCheckbox.checked);
+  updateOption('primeSkipIntro', primeCheckbox.checked);
+  updateOption('primeSkipRecap', primeCheckbox.checked);
+  updateOption('primeSkipNext', primeCheckbox.checked);
+  updateOption('primeSkipAds', primeSkipAds.checked);
+}
 
 //
 // Disney+
 //
-// TODO
+function updateDisneyOptions(disney, skipIntro, skipNext) {
+  if (disney || skipIntro || skipNext) {
+    disneyOptionsList.style.display = 'block';
+  } else {
+    disneyOptionsList.style.display = 'none';
+  }
+  disneyCheckbox.checked = disney;
+  disneySkipIntro.checked = skipIntro;
+  disneySkipNext.checked = skipNext;
+}
+
+function handleDisneyCheckboxClick(e) {
+  if (e.target === disneyCheckbox) {
+    toggleDisneyCheckboxes();
+  }
+}
+
+function handleDisneyOptionsClick(e) {
+  if (e.target === disneySkipIntro) {
+    updateOption('disneySkipIntro', disneySkipIntro.checked);
+  } else if (e.target === disneySkipNext) {
+    updateOption('disneySkipNext', disneySkipNext.checked);
+  }
+  if(!disneySkipIntro.checked && !disneySkipNext.checked){
+    disneyCheckbox.checked = disneySkipIntro.checked;
+    updateOption('disney', disneySkipIntro.checked);
+    disneyOptionsList.style.display = 'none';
+  }
+}
+
+function toggleDisneyCheckboxes() {
+  const disneyCheckboxes = document.querySelectorAll('[data-disney]');
+  disneyCheckboxes.forEach(function(checkbox) {
+    checkbox.checked = disneyCheckbox.checked;
+  });
+  if(disneyCheckbox.checked == true ){
+    disneyOptionsList.style.display = 'block';
+  }
+  updateOption('disney', disneyCheckbox.checked);
+  updateOption('disneySkipIntro', disneyCheckbox.checked);
+  updateOption('disneySkipNext', disneyCheckbox.checked);
+}
 
 //
 // Utils

@@ -23,7 +23,7 @@ b. Enter the below command command to pause execution and display “paused in d
 
 setTimeout(function() {
 debugger;
-}, 3000);
+}, 1000);
 
 
 

@@ -8,7 +8,13 @@ chrome.runtime.onInstalled.addListener(() => {
   chrome.storage.local.set({ apple: true});
   chrome.storage.local.set({ appleSkipAds: true });
   // Add Disney+ on Install
-  // TODO
+  chrome.storage.local.set({ disney: true});
+  chrome.storage.local.set({ disneySkipIntro: true });
+  chrome.storage.local.set({ disneySkipNext: true });
   // Add Prime Video on Install
-  // TODO
+  chrome.storage.local.set({ prime: true});
+  chrome.storage.local.set({ primeSkipIntro: true });
+  chrome.storage.local.set({ primeSkipRecap: true });
+  chrome.storage.local.set({ primeSkipNext: true });
+  chrome.storage.local.set({ primeSkipAds: true });
 });

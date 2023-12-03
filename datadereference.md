@@ -1,62 +1,21 @@
-Bug ?  Problème de recherche dans appleTV
-Feat : Prime & Disney
+TODO Bug ? Problème de recherche dans appleTV
+TODO Bug ? When skipAds not existing in new popupjs ? Quid des undefined quand !skipAds = undefined
 
 -*-**-*-*-*-*-*-*-*-*-*-*-
+
 Liste de séries pour tester chacun des cas de skip
  
-Test de Netflix ok  :
+Test de Netflix ok (25/11/2023) :
 Hunter X Hunter 117 récap intro : https://www.netflix.com/watch/80150556?trackId=254794450
 
-Test de AppleTV ok :
+Test de AppleTV ok (25/11/2023) :
 Episode 8 The Morning Show : https://tv.apple.com/fr/episode/la-solitude-du-pouvoir/umc.cmc.231w1pa6pm3ocsma0mw7zueaj
 
+Test de PrimeVideo ok :
+Saison 2 Episode 2 American Gods : https://www.primevideo.com/-/fr/search/ref=atv_sr_sug_7?language=fr_FR&phrase=american%20gods&ie=UTF8
+Saison 3 Episode 2 LOL qui crie : https://www.primevideo.com/-/fr/search/ref=atv_sr_sug_4?language=fr_FR&phrase=lol%20qui%20rit%20sort%20saison%203&ie=UTF8 
 
-   {
-      platform: NETFLIX,
-      info: 'Continue playing.',
-      selector: `[aria-label='Continue Playing']`
-    },
-    {
-      platform: NETFLIX,
-      info: 'Skipping recap.',
-      selector: `[aria-label='Skip Recap']`
-    },
-    {
-      platform: NETFLIX,
-      info: 'Skipping intro.',
-      selector: `[aria-label='Skip Intro']`
-    },
-    // Prime Video
-    {
-      platform: PRIME,
-      info: 'Skipping credits.',
-      selector: '.f1oordr3'
-    },
-    {
-      platform: PRIME,
-      info: 'Playing next episode.',
-      selector: '.fd8k8m6'
-    },
-    {
-      platform: PRIME,
-      info: 'Skipping ad.',
-      selector: '.adSkipButton'
-    },
-    {
-      platform: PRIME,
-      info: 'Skipping recap.',
-      selector: '.skipElement'
-    },
-    // Disney Plus
-    {
-      platform: DISNEY,
-      info: 'Skipping credits',
-      selector: '.skip__button'
-    },
-    {
-      platform: DISNEY,
-      info: 'Playing next episode',
-      selector: 'button.sc-gipzik.play'
-    },
-  ];
-*/
+Test de DisneyPlus ok :
+TODO --
+
+-*-**-*-*-*-*-*-*-*-*-*-*-

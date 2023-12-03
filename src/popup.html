@@ -32,17 +32,17 @@
           <label for="apple">AppleTV</label>
         </h3>
         <ul id="apple-options-list" class="apple-options-list">
-          <li><input type="checkbox" id="apple-skip-ads" name="apple-skip-ads" data-apple><label for="apple-skip-ads">Skip Ads</label></li>
+          <li><input type="checkbox" id="apple-skip-ads" name="apple-skip-ads" data-apple><label for="apple-skip-ads">Skip All</label></li>
         </ul>
       </div>
 
     <!-- Prime Video Section -->
     <div>
       <h3>
-        <input type="checkbox" id="prime"> 
+        <input type="checkbox" id="primeCheckbox"> 
         <label for="prime">Prime Video</label>
       </h3>
-      <ul>
+      <ul id="prime-options-list" class="prime-options-list">
         <li><input type="checkbox" id="prime-skip-intro" name="prime-skip-intro" data-prime><label for="prime-skip-intro">Skip Intro</label></li>
         <li><input type="checkbox" id="prime-skip-recap" name="prime-skip-recap" data-prime><label for="prime-skip-recap">Skip Recap</label></li>
         <li><input type="checkbox" id="prime-skip-next" name="prime-skip-next" data-prime><label for="prime-skip-next">Skip Next Episode</label></li>
@@ -52,8 +52,14 @@
 
     <!-- Disney Plus Section -->
     <div>
-      <h3>Disney Plus</h3>
-      <!-- TODO Add options for Disney Plus -->
+      <h3>
+        <input type="checkbox" id="disneyCheckbox"> 
+        <label for="disney">Disney Plus</label>
+      </h3>
+      <ul id="disney-options-list" class="disney-options-list">
+        <li><input type="checkbox" id="disney-skip-intro" name="disney-skip-intro" data-disney><label for="disney-skip-intro">Skip Intro</label></li>
+        <li><input type="checkbox" id="disney-skip-next" name="disney-skip-next" data-disney><label for="disney-skip-next">Skip Next Episode</label></li>
+      </ul>
     </div>
     <br />
   </div>
