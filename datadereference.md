@@ -1,5 +1,3 @@
-TODO Bug ? Problème de recherche dans appleTV
-
 -*-**-*-*-*-*-*-*-*-*-*-*-
 
 Liste de séries pour tester chacun des cas de skip
