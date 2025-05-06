@@ -4,7 +4,7 @@
   "author": "Michaël Faurel",
   "version": "2.1.0",
   "manifest_version": 3,
-  "icons": { "128": "src/assets/icon128x128_2.png" },
+  "icons": { "128": "src/assets/icon128x128.png" },
   "background": {
     "service_worker": "src/background.js"
   },

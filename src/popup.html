@@ -1,67 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Skipfast for Netflix, Prime Video and Disney Plus</title>
   <link rel="stylesheet" type="text/css" href="styles/mystyle.css" />
 </head>
 <body>
   <div class="container">
-    <p class="title">
-      Skipfast
-    </p>
-    <p class="title-bis" title="par Michael Faurel">
-      par Michael Faurel
-    </p>
+    <header>
+      <p class="title">Skipfast</p>
+      <p class="title-bis">by Michael Faurel</p>
+    </header>
+
+    <!-- Global Settings -->
+    <div class="platform-section">
+      <h3>
+        <label>Global Settings</label>
+      </h3>
+      <ul class="settings-list">
+        <li>
+          <input type="checkbox" id="autoFullscreen" name="autoFullscreen">
+          <label for="autoFullscreen">Auto Fullscreen</label>
+        </li>
+        <li>
+          <input type="checkbox" id="volumeScroll" name="volumeScroll">
+          <label for="volumeScroll">Volume Scroll Control</label>
+        </li>
+        <li>
+          <input type="checkbox" id="speedControl" name="speedControl">
+          <label for="speedControl">Speed Control</label>
+        </li>
+        <li class="speed-control">
+          <label for="defaultSpeed">Default Speed:</label>
+          <select id="defaultSpeed" name="defaultSpeed">
+            <option value="0.5">0.5x</option>
+            <option value="0.75">0.75x</option>
+            <option value="1.0" selected>1.0x</option>
+            <option value="1.25">1.25x</option>
+            <option value="1.5">1.5x</option>
+            <option value="2.0">2.0x</option>
+          </select>
+        </li>
+      </ul>
+    </div>
+
     <!-- Netflix Section -->
-    <div>
+    <div class="platform-section">
       <h3>
         <input type="checkbox" id="netflixCheckbox"> 
-        <label for="netflix">Netflix</label>
+        <label for="netflixCheckbox">Netflix</label>
       </h3>
       <ul id="netflix-options-list" class="netflix-options-list">
         <li><input type="checkbox" id="netflix-skip-intro" name="netflix-skip-intro" data-netflix><label for="netflix-skip-intro">Skip Intro</label></li>
         <li><input type="checkbox" id="netflix-skip-recap" name="netflix-skip-recap" data-netflix><label for="netflix-skip-recap">Skip Recap</label></li>
         <li><input type="checkbox" id="netflix-skip-next" name="netflix-skip-next" data-netflix><label for="netflix-skip-next">Skip Next Episode</label></li>
+        <li><input type="checkbox" id="netflix-remember-profile" name="netflix-remember-profile" data-netflix><label for="netflix-remember-profile">Remember Profile</label></li>
+        <li><input type="checkbox" id="netflix-block-watching" name="netflix-block-watching" data-netflix><label for="netflix-block-watching">Block "Still Watching?"</label></li>
       </ul>
     </div>
 
     <!-- AppleTV Section -->
-    <div>
-        <h3>
-          <input type="checkbox" id="appleCheckbox"> 
-          <label for="apple">AppleTV</label>
-        </h3>
-        <ul id="apple-options-list" class="apple-options-list">
-          <li><input type="checkbox" id="apple-skip-ads" name="apple-skip-ads" data-apple><label for="apple-skip-ads">Skip All</label></li>
-        </ul>
-      </div>
+    <div class="platform-section">
+      <h3>
+        <input type="checkbox" id="appleCheckbox"> 
+        <label for="appleCheckbox">AppleTV</label>
+      </h3>
+      <ul id="apple-options-list" class="apple-options-list">
+        <li><input type="checkbox" id="apple-skip-ads" name="apple-skip-ads" data-apple><label for="apple-skip-ads">Skip All</label></li>
+      </ul>
+    </div>
 
     <!-- Prime Video Section -->
-    <div>
+    <div class="platform-section">
       <h3>
         <input type="checkbox" id="primeCheckbox"> 
-        <label for="prime">Prime Video</label>
+        <label for="primeCheckbox">Prime Video</label>
       </h3>
       <ul id="prime-options-list" class="prime-options-list">
         <li><input type="checkbox" id="prime-skip-intro" name="prime-skip-intro" data-prime><label for="prime-skip-intro">Skip Intro</label></li>
         <li><input type="checkbox" id="prime-skip-recap" name="prime-skip-recap" data-prime><label for="prime-skip-recap">Skip Recap</label></li>
         <li><input type="checkbox" id="prime-skip-next" name="prime-skip-next" data-prime><label for="prime-skip-next">Skip Next Episode</label></li>
         <li><input type="checkbox" id="prime-skip-ads" name="prime-skip-ads" data-prime><label for="prime-skip-ads">Skip Ads</label></li>
+        <li><input type="checkbox" id="prime-remove-blur" name="prime-remove-blur" data-prime><label for="prime-remove-blur">Remove Hover Blur</label></li>
       </ul>
     </div>
 
     <!-- Disney Plus Section -->
-    <div>
+    <div class="platform-section">
       <h3>
         <input type="checkbox" id="disneyCheckbox"> 
-        <label for="disney">Disney Plus</label>
+        <label for="disneyCheckbox">Disney Plus</label>
       </h3>
       <ul id="disney-options-list" class="disney-options-list">
         <li><input type="checkbox" id="disney-skip-intro" name="disney-skip-intro" data-disney><label for="disney-skip-intro">Skip Intro</label></li>
         <li><input type="checkbox" id="disney-skip-next" name="disney-skip-next" data-disney><label for="disney-skip-next">Skip Next Episode</label></li>
       </ul>
     </div>
-    <br />
   </div>
   <script src="popup.js"></script>
 </body>
