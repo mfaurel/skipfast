@@ -13,4 +13,4 @@ We have a solution for you who don't need to waste time. Now you can:
 - Auto Skips Ads 
 
 New 2025 feature : 
-- Allow to speed up html videos pressing d or f !
+- Allow to speed up html videos pressing s or d !
